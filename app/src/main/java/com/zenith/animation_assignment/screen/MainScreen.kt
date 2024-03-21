@@ -46,5 +46,9 @@ fun MainScreen(navController: NavController) {
         }) {
             Text("Go to Animation 4")
         }
+        Spacer(modifier = Modifier.height(36.dp))
+        Text("Student Name: Zenith Rajbhandari")
+        Text("Student ID: 301373152")
+
     }
 }
