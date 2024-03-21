@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_routes"
+    app:startDestination="@id/mainScreen">
+
+
+        <fragment
+            android:id="@+id/mainScreen"
+            android:name="com.zenith.animation_assignment.screen.MainScreen"
+            android:label="Main Screen">
+            <action
+                android:id="@+id/action_mainScreen_to_screen1"
+                app:destination="@id/screen1" />
+            <action
+                android:id="@+id/action_mainScreen_to_screen2"
+                app:destination="@id/screen2" />
+            <action
+                android:id="@+id/action_mainScreen_to_screen3"
+                app:destination="@id/screen3" />
+            <action
+                android:id="@+id/action_mainScreen_to_screen4"
+                app:destination="@id/screen4" />
+            <!-- Add actions for other screens -->
+        </fragment>
+
+        <fragment
+            android:id="@+id/screen1"
+            android:name="com.zenith.animation_assignment.screen.Screen1"
+            android:label="Screen 1">
+            <action
+                android:id="@+id/action_screen1_to_mainscreen"
+                app:destination="@id/mainScreen" />
+        </fragment>
+
+        <fragment
+            android:id="@+id/screen2"
+            android:name="com.zenith.animation_assignment.screen.Screen2"
+            android:label="Screen 2">
+            <action
+                android:id="@+id/action_screen2_to_mainscreen"
+                app:destination="@id/mainScreen" />
+        </fragment>
+
+        <fragment
+            android:id="@+id/screen3"
+            android:name="com.zenith.animation_assignment.screen.Screen3"
+            android:label="Screen 3">
+            <action
+                android:id="@+id/action_screen3_to_mainscreen"
+                app:destination="@id/mainScreen" />
+        </fragment>
+
+        <fragment
+            android:id="@+id/screen4"
+            android:name="com.zenith.animation_assignment.screen.Screen4"
+            android:label="Screen 4" >
+            <action
+                android:id="@+id/action_screen4_to_mainscreen"
+                app:destination="@id/mainScreen" />
+        </fragment>
+        <!-- Add other fragments -->
+</navigation>
