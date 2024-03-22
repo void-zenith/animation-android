@@ -30,13 +30,13 @@ fun MainScreen(navController: NavController) {
         }
         Text("Check out the Value based Animation")
         Button(onClick = {
-            navController.navigate("screen1")
+            navController.navigate("screen2")
         }) {
             Text("Go to Animation 2")
         }
         Text("Check out the Value based Animation : 2")
         Button(onClick = {
-            navController.navigate("screen1")
+            navController.navigate("screen2")
         }) {
             Text("Go to Animation 3")
         }

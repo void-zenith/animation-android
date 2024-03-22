@@ -1,5 +1,9 @@
 package com.zenith.animation_assignment.screen
 
+import android.annotation.SuppressLint
+import androidx.compose.animation.core.Animatable
+import androidx.compose.animation.core.tween
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.material3.Button
@@ -7,13 +11,17 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.navigation.NavController
 import androidx.compose.ui.unit.dp
 
+@SuppressLint("RememberReturnType")
 @Composable
 fun Screen2(navController: NavController) {
-    var textFieldValue by remember { mutableStateOf(TextFieldValue()) }
+    var isExpanded by remember { mutableStateOf(false) }
+
+    val animatableSize = remember { Animatable(0f) }
 
     Column(
         modifier = Modifier
@@ -22,22 +30,34 @@ fun Screen2(navController: NavController) {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Text("Main Screen")
-        Spacer(modifier = Modifier.height(16.dp))
-        BasicTextField(
-            value = textFieldValue,
-            onValueChange = { textFieldValue = it },
-            singleLine = true,
-            modifier = Modifier.fillMaxWidth()
-        )
-        Spacer(modifier = Modifier.height(16.dp))
-        Button(onClick = {
-            val inputText = textFieldValue.text
-            if (inputText.isNotBlank()) {
-                navController.navigate("screen2")
+       Button(onClick={navController.navigate("main")}){
+           Text("Go Back")
+       }
+        Button(
+            onClick = {
+                isExpanded = !isExpanded
+            },
+            modifier = Modifier.padding(bottom = 16.dp)
+        ) {
+            if (isExpanded) {
+                Text(text = "Collapse")
+            } else {
+                Text(text = "Expand")
             }
-        }) {
-            Text("Go to Screen 3")
+        }
+
+        Box(
+            modifier = Modifier
+                .size(animatableSize.value.dp)
+                .background(Color.Green)
+        )
+
+        LaunchedEffect(isExpanded) {
+            val targetValue = if (isExpanded) 290f else 0f
+            animatableSize.animateTo(
+                targetValue,
+                animationSpec = tween(durationMillis = 1000)
+            )
         }
     }
 }

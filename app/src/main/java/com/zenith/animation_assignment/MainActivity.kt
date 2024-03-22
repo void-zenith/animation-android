@@ -12,6 +12,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.zenith.animation_assignment.screen.MainScreen
 import com.zenith.animation_assignment.screen.Screen1
+import com.zenith.animation_assignment.screen.Screen2
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,6 +36,8 @@ fun AnimationApp(navController: NavHostController) {
             NavHost(navController, startDestination = Screens.MainScreen.route) {
                 composable(Screens.MainScreen.route) { MainScreen(navController) }
                 composable(Screens.Screen1.route) { Screen1(navController) }
+                composable(Screens.Screen2.route) { Screen2(navController) }
+
                 // Add composable functions for other screens
             }
         }
