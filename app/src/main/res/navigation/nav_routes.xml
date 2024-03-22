@@ -29,7 +29,7 @@
             android:name="com.zenith.animation_assignment.screen.Screen1"
             android:label="Screen 1">
             <action
-                android:id="@+id/action_screen1_to_mainscreen"
+                android:id="@+id/action_screen1_to_mainScreen"
                 app:destination="@id/mainScreen" />
         </fragment>
 
